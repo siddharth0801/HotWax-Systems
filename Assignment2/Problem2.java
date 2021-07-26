@@ -1,5 +1,4 @@
 
-
 import java.util.Scanner;
 
 public class Problem2 {
@@ -53,7 +52,18 @@ Scanner sc = new Scanner(System.in);
 	}
 	private void Cuboid() {
 		
-		
+		System.out.println("Cuboid:");
+		System.out.print("Enter length(l): ");
+		double l = sc.nextDouble();
+		System.out.print("Enter breath(b): ");
+		double b = sc.nextDouble();
+		System.out.print("Enter height(h): ");
+		double h = sc.nextDouble();
+		double TSArea = 2*(l*b+b*h+h*l);
+		double Volume = l*b*h;
+		System.out.println("SurfaceArea of Cuboid with length and breadth and height "+l+", "+b+", "+h+" is: "+String.format("%.2f", TSArea));
+		System.out.println("Volume of Cuboid with length and breadth and height "+l+", "+b+", "+h+" is: "+String.format("%.2f", Volume));
+		System.out.println();
 	}
 	private void Cube() {
 		
@@ -68,11 +78,31 @@ Scanner sc = new Scanner(System.in);
 	}
 	private void Cylinder() {
 		
-		
+		double pi = Math.PI;
+		System.out.println("Cylinder:");
+		System.out.print("Enter radius: ");
+		double radius = sc.nextDouble();
+		System.out.print("Enter height: ");
+		double height = sc.nextDouble();
+		double CSArea = 2*pi*radius*height;
+		double SArea = 2*pi*radius*(radius+height);
+		double Volume = pi*Math.pow(radius, 2)*height;
+		System.out.println("Curved Surface area of Cylinder with radius and height "+radius+", "+height+" is: "+String.format("%.2f", CSArea));
+		System.out.println("Total Surface Area of Cylinder with radius and height "+radius+", "+height+" is: "+String.format("%.2f", SArea));
+		System.out.println("Volume of Cylinder with radius and height "+radius+", "+height+" is: "+String.format("%.2f", Volume));
+		System.out.println();
 	}
 	private void Sphere() {
 		
-		
+		double pi = Math.PI;
+		System.out.println("Sphere:");
+		System.out.print("Enter radius: ");
+		double radius = sc.nextDouble();
+		double SArea = 4*pi*Math.pow(radius, 2);
+		double Volume = (4.0/3.0)*pi*Math.pow(radius, 3);
+		System.out.println("Surface Area of Sphere with radius "+radius+" is: "+String.format("%.2f", SArea));
+		System.out.println("Volume of Sphere with radius "+radius+" is: "+String.format("%.2f", Volume));
+		System.out.println();
 	}
 	private void Square() {
 		
@@ -115,7 +145,7 @@ Scanner sc = new Scanner(System.in);
 		System.out.print("Enter radius: ");
 		double radius = sc.nextDouble();
 		double Area = pi*Math.pow(radius, 2);
-		double  Circumference = 2*pi*radius;
+		double Circumference = 2*pi*radius;
 		System.out.println("Circumference of Circle with radius "+radius+" is: "+String.format("%.2f", Circumference));
 		System.out.println("Area of Circle with radius "+radius+" is: "+String.format("%.2f", Area));
 		System.out.println();
