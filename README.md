@@ -1,2 +1,2 @@
 # HotWax-Systems
-Java Assignment : 
+Java Assignment  
