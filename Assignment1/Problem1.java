@@ -8,7 +8,7 @@ import java.util.HashMap;
    
 
 public class Problem1 {
-	public void PrintOutput(String data) {
+	private void PrintOutput(String data) {
 		String[] words = data.split(" ");
 		HashMap<String,Integer> map = new HashMap<>();
 		try {
@@ -16,7 +16,7 @@ public class Problem1 {
 			String s;
 			
 			while((s=br.readLine())!=null) {
-				int cc = Problem1.readingFile(data,s);
+				int cc = readingFile(data,s);
 				map.put(s, cc);
 			}
 			br.close();
@@ -29,7 +29,7 @@ public class Problem1 {
 		}
 		System.out.println(map);
 	}
-	public static int readingFile(String data,String findw) {
+	private int readingFile(String data,String findw) {
 		int count=0;
 		
 //			BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\hp\\Documents\\Java Files\\WebData.txt"));
