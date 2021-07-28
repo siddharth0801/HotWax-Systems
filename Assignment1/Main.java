@@ -1,8 +1,10 @@
 
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class Main {
 
@@ -10,9 +12,10 @@ public class Main {
 		
 		Problem1 obj = new Problem1();
 		obj.getdata();
+		
 //		HashMap<String, Integer> map = new HashMap<>();
 //		try {
-//			BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\hp\\Desktop\\words.txt"));
+//			BufferedReader br = new BufferedReader(new FileReader("words.txt"));
 //			String s;
 //			
 //			while((s=br.readLine())!=null) {

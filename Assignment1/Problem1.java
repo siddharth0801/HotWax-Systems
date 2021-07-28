@@ -1,10 +1,9 @@
 
+
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
+import java.util.*;
    
 
 public class Problem1 {
@@ -27,12 +26,28 @@ public class Problem1 {
 		catch(IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(map);
+//		System.out.println(map.values());
+		ArrayList<Integer> sortedV = new ArrayList<Integer>(map.values());
+		Collections.sort(sortedV);
+//		System.out.println(map);
+//		System.out.println(sortedV);
+		int len = sortedV.size();
+		for(int i=len-1;i>len-4;i--) {
+			for(String x:map.keySet()) {
+				if(map.get(x)==sortedV.get(i)) {
+					
+					System.out.println(x+" "+map.get(x));
+					map.remove(x);
+					break;
+				}
+			}
+		}
+		System.out.println();
 	}
 	private int readingFile(String data,String findw) {
 		int count=0;
 		
-//			BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\hp\\Documents\\Java Files\\WebData.txt"));
+//			BufferedReader br = new BufferedReader(new FileReader("WebData.txt"));
 //			String Stemp=br.readLine();
 			String[] words = data.split(" ");
 			for(String x:words) {
@@ -50,9 +65,11 @@ public class Problem1 {
 			
 			String s;
 			while((s=br.readLine())!=null) {
-//				BufferedWriter bw = new BufferedWriter(new FileWriter(new File("C:\\Users\\hp\\Documents\\Java Files\\WebData.txt")));
-				String output = Problem1.getUrlContents(s);
+//				BufferedWriter bw = new BufferedWriter(new FileWriter(new File("WebData.txt")));
+				String output = getUrlContents(s);
 				output = output.replaceAll("<[^>]*>", "").replaceAll("(?m)^\\s+$", "").replaceAll("\\s", " ");
+				System.out.println("URL: "+s);
+//				System.out.println("words"+" occurence");
 				PrintOutput(output);
 //				bw.write(output);
 				
@@ -70,7 +87,7 @@ public class Problem1 {
 		}
 	}
 	
-	 static String getUrlContents(String theUrl)  
+	 private String getUrlContents(String theUrl)  
 	  {  
 	    StringBuilder content = new StringBuilder();  
 	  // Use try and catch to avoid the exceptions  
