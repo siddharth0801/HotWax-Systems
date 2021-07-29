@@ -20,12 +20,12 @@ public class Problem1 {
 			}
 			br.close();
 		} catch (FileNotFoundException e) {
-			
-			e.printStackTrace();
+			System.out.println(e);
 		}
 		catch(IOException e) {
-			e.printStackTrace();
+			System.out.println(e);
 		}
+
 //		System.out.println(map.values());
 		ArrayList<Integer> sortedV = new ArrayList<Integer>(map.values());
 		Collections.sort(sortedV);
@@ -42,61 +42,59 @@ public class Problem1 {
 				}
 			}
 		}
+
 		System.out.println();
 	}
+
 	private int readingFile(String data,String findw) {
 		int count=0;
 		
-//			BufferedReader br = new BufferedReader(new FileReader("WebData.txt"));
-//			String Stemp=br.readLine();
+
 			String[] words = data.split(" ");
 			for(String x:words) {
 				if(x.toLowerCase().contains(findw.toLowerCase())) {
 					count++;
 				}
 			}
-//			br.close();
+;
 			
 		return count;
+
 	}
+
 	public void getdata() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("url.txt"));
 			
 			String s;
 			while((s=br.readLine())!=null) {
-//				BufferedWriter bw = new BufferedWriter(new FileWriter(new File("WebData.txt")));
+
 				String output = getUrlContents(s);
 				output = output.replaceAll("<[^>]*>", "").replaceAll("(?m)^\\s+$", "").replaceAll("\\s", " ");
 				System.out.println("URL: "+s);
-//				System.out.println("words"+" occurence");
+
 				PrintOutput(output);
-//				bw.write(output);
-				
-//				bw.close();
+
 			}
 			
 			br.close();
-			
-			  
-		    
-		    
+
 		} catch (IOException e) {
 			
-			e.printStackTrace();
+			System.out.println(e);
 		}
 	}
 	
 	 private String getUrlContents(String theUrl)  
 	  {  
 	    StringBuilder content = new StringBuilder();  
-	  // Use try and catch to avoid the exceptions  
+ 
 	    try  
 	    {  
 	      URL url = new URL(theUrl); // creating a url object  
 	      URLConnection urlConnection = url.openConnection(); // creating a urlconnection object  
 	  
-	      // wrapping the urlconnection in a bufferedreader  
+	        
 	      BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));  
 	      String line;  
 	      // reading from the urlconnection using the bufferedreader  
@@ -109,8 +107,9 @@ public class Problem1 {
 	    catch(Exception e)  
 	    { 
 	    	
-	      e.printStackTrace();  
+	      System.out.println(e);  
 	    }  
+	    
 	    return content.toString();  
 	  }  
 }
