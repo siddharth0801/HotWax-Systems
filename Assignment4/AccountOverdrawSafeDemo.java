@@ -1,20 +1,19 @@
 
 public class AccountOverdrawSafeDemo implements Runnable {
 
-	private Account a = new Account();
+	Account a = new Account();
 	
 	public static void main(String[] args) {
 		 AccountOverdrawSafeDemo th = new  AccountOverdrawSafeDemo();
 		Thread t1 = new Thread(th);
 		Thread t2 = new Thread(th);
-		t1.setName("Siddharth thread");
-		t2.setName("Shailendra thread");
+		t1.setName("Siddharth");
+		t2.setName("Shailendra");
 		
 		t1.start();
 		try {
 			Thread.sleep(10);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		t2.start();

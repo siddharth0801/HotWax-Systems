@@ -1,7 +1,7 @@
 
 public class AccountOverdrawDemo implements Runnable {
 
-	private Account a = new Account();
+	Account a = new Account();
 	
 	public static void main(String[] args) {
 		/*We are making only one instance of AccountOverdrawDemo therefore
@@ -9,8 +9,8 @@ public class AccountOverdrawDemo implements Runnable {
 		AccountOverdrawDemo th = new AccountOverdrawDemo();
 		Thread t1 = new Thread(th);
 		Thread t2 = new Thread(th);
-		t1.setName("Siddharth thread");
-		t2.setName("Shailendra thread");
+		t1.setName("Siddharth");
+		t2.setName("Shailendra");
 		
 		t1.start();
 		try {
