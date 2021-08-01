@@ -9,7 +9,7 @@ public class Problem3 {
 	private Scanner sc = new Scanner(System.in);
 	public void InitializeHash() {
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("Employee.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("D:\\Employee.txt"));
 			String values = br.readLine();
 			String[] all = values.split(";");
 			for(String x : all) {
@@ -60,10 +60,73 @@ public class Problem3 {
 	}
 	private void SearchOp() {
 		
+		System.out.print("Enter Query(to Search in data): ");
+		String que = sc.nextLine();
+		ArrayList<Employee> arr = new ArrayList<Employee>();
+		for (Entry<String, Employee> entry : empList.entrySet()) {
+			Employee e = entry.getValue();
+			String data = e.getName()+" "+e.geteMail()+" "+e.getAge()+" "+e.getDOB();
+			if(data.toUpperCase().contains(que.toUpperCase())) {
+				arr.add(e);
+			}
+//			System.out.println(e.getName()+" "+e.geteMail()+" "+e.getAge()+" "+e.getDOB());
+		}
+		if(arr.isEmpty()) {
+			System.out.println("Record not Found Try again!!");
+			return;
+		}
+		System.out.println("Sort(Order By)?? ");
+		System.out.println("1) Name, 2) Age, 3) DOB ");
+		byte sortingchoice=sc.nextByte();
+		if(sortingchoice==1) {
+			Collections.sort(arr,new Sortingbyname());
+		}
+		else if(sortingchoice==2) {
+			Collections.sort(arr,new Sortingbyage());
+		}
+		else if(sortingchoice==3) {
+			Collections.sort(arr,new SortingbyDOB());
+		}
+		else {
+			System.out.println("Invalid Choice!! Try Again");
+			return;
+		}
+		System.out.println("Direction (ascending or descending)?? ");
+		System.out.println("1) ascending, 2) descending ");
+		byte dirchoice = sc.nextByte();
+		if(dirchoice==1) {
+			for(Employee e1: arr) {
+				System.out.println(e1.getName()+" "+e1.geteMail()+" "+e1.getAge()+" "+e1.getDOB());
+				
+			}
+		}
+		else if(dirchoice==2) {
+			Collections.reverse(arr);
+			for(Employee e1: arr) {
+				System.out.println(e1.getName()+" "+e1.geteMail()+" "+e1.getAge()+" "+e1.getDOB());
+				
+			}
+		}
+		else {
+			System.out.println("Invalid Choice!! Try Again!!");
+		}
 		
 	}
 	private void DeleteOp() {
-		
+		System.out.println("Deleting Employee Record!!");
+		System.out.println("Enter Employee ID");
+		String id = sc.nextLine();
+		if(empList.containsKey(id)) {
+			System.out.println("Record Found!!");
+			empList.remove(id);
+			File f = new File("D:\\Employee.txt");
+			f.delete();
+			for (Entry<String, Employee> entry : empList.entrySet()) {
+				Employee e = entry.getValue();
+				Addtofile(e);
+			}
+			
+		}
 		
 	}
 	public void PrintallEmp() {
@@ -104,8 +167,8 @@ public class Problem3 {
 		
 		try {
 			
-			BufferedWriter br = new BufferedWriter(new FileWriter("Employee.txt",true));
-			if(new File("Employee.txt").length()==0) {
+			BufferedWriter br = new BufferedWriter(new FileWriter("D:\\Employee.txt",true));
+			if(new File("D:\\Employee.txt").length()==0) {
 				br.write(getEmpID(e)+",");
 			}
 			else {
