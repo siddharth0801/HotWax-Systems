@@ -13,8 +13,7 @@ public class SortingbyDOB implements Comparator<Employee>{
 			Date date2=new SimpleDateFormat("dd/MM/yyyy").parse(o2.getDOB());
 			return date1.compareTo(date2);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e);
 		}
 		return 0;
 		

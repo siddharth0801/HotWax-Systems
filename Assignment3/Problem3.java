@@ -9,7 +9,7 @@ public class Problem3 {
 	private Scanner sc = new Scanner(System.in);
 	public void InitializeHash() {
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("D:\\Employee.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("Employee.txt"));
 			String values = br.readLine();
 			String[] all = values.split(";");
 			for(String x : all) {
@@ -119,7 +119,7 @@ public class Problem3 {
 		if(empList.containsKey(id)) {
 			System.out.println("Record Found!!");
 			empList.remove(id);
-			File f = new File("D:\\Employee.txt");
+			File f = new File("Employee.txt");
 			f.delete();
 			for (Entry<String, Employee> entry : empList.entrySet()) {
 				Employee e = entry.getValue();
@@ -167,8 +167,8 @@ public class Problem3 {
 		
 		try {
 			
-			BufferedWriter br = new BufferedWriter(new FileWriter("D:\\Employee.txt",true));
-			if(new File("D:\\Employee.txt").length()==0) {
+			BufferedWriter br = new BufferedWriter(new FileWriter("Employee.txt",true));
+			if(new File("Employee.txt").length()==0) {
 				br.write(getEmpID(e)+",");
 			}
 			else {
