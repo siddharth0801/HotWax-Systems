@@ -5,7 +5,8 @@ public class DeserializationTest {
 
 	public static void main(String[] args) {
 		Problem5 pr5 = new Problem5();
-		String filename="output1.ser";
+		String filename="output2.ser";
+		System.out.println(filename+" reading!!");
 		ArrayList<Student> data = pr5.DeserializingList(filename);
 		for(Student s: data) {
 			System.out.print(s.firstName+" "+s.dob);

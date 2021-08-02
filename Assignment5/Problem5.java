@@ -12,16 +12,16 @@ public class Problem5 {
 	public ArrayList<Student> makeList() {
 		ArrayList<Student> arr = new ArrayList<>();
 		
-		Address a1 = new Address("Indore", "MP", 450001, "India");
+		Address a1 = new Address("Indore", "M.P.", 450001, "India");
 		Student s1 = new Student("Siddharth", "04/03/2000", a1);
 		arr.add(s1);
-		Address a2 = new Address("Bhopal", "MP", 462001, "India");
+		Address a2 = new Address("Bhopal", "M.P.", 462001, "India");
 		Student s2 = new Student("Kushagra", "24/07/1999", a2);
 		arr.add(s2);
 		Address a3 = new Address("Delhi", "Delhi", 120001, "India");
 		Student s3 = new Student("Aditya", "07/11/1998", a3);
 		arr.add(s3);
-		Address a4 = new Address("Agra", "UP", 110451, "India");
+		Address a4 = new Address("Agra", "U.P.", 110451, "India");
 		Student s4 = new Student("Ajay", "25/01/1999", a4);
 		arr.add(s4);
 		return arr;

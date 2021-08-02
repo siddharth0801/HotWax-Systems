@@ -7,7 +7,7 @@ import java.util.Date;
 public class Student implements Serializable {
 
 	String firstName;
-	Date dob;
+	String dob;
 	Address a;
 	public Student(String name,String dob,Address a) {
 		this.firstName=name;
