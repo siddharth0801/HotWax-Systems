@@ -30,7 +30,7 @@ public class Problem5 {
 		ArrayList<Student> arr = makeList();
 		SerializingList(arr, filename);
 	}
-	public void SerializingList(ArrayList<Student> data,String filename) {
+	private void SerializingList(ArrayList<Student> data,String filename) {
 		
 		try {
 			FileOutputStream fos = new FileOutputStream(filename);
@@ -39,8 +39,7 @@ public class Problem5 {
 			oos.close();
 			fos.close();
 			System.out.println(filename+" Created!!");
-			
-			
+				
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
