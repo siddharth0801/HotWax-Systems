@@ -13,7 +13,7 @@ public class Student implements Serializable {
 	public Student(String name,String dob,Address a) {
 		this.firstName=name;
 		// this.dob=dob;
-		Setdate(dob);
+		SetDate(dob);
 		this.a=a;
 	}
 	private void SetDate(String dob) {
