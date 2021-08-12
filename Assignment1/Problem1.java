@@ -7,7 +7,7 @@ import java.util.*;
    
 
 public class Problem1 {
-	private void PrintOutput(String data) {
+	private void printOutput(String data) {
 		String[] words = data.split(" ");
 		HashMap<String,Integer> map = new HashMap<>();
 		try {
@@ -62,7 +62,7 @@ public class Problem1 {
 
 	}
 
-	public void getdata() {
+	public void getData() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("url.txt"));
 			
@@ -73,7 +73,7 @@ public class Problem1 {
 				output = output.replaceAll("<[^>]*>", "").replaceAll("(?m)^\\s+$", "").replaceAll("\\s", " ");
 				System.out.println("URL: "+s);
 
-				PrintOutput(output);
+				printOutput(output);
 
 			}
 			
