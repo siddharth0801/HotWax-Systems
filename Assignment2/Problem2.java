@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Problem2 {
 Scanner sc = new Scanner(System.in);
 	
-	public void Menu() {
+	public void menu() {
 		System.out.println("\tMain Menu");
 		System.out.println("Select your prefered Shape:");
 		System.out.println("1) Circle");
@@ -19,61 +19,61 @@ Scanner sc = new Scanner(System.in);
 		System.out.print("Your choice number-> ");
 		byte shapenumber = sc.nextByte();
 		try {
-			Inputpara(shapenumber);
-		} catch (InvalidInput e) {
-			System.out.println("InvalidInput Exception: "+e.getMessage()+"\n");
+			inputPara(shapenumber);
+		} catch (InvalidInputException e) {
+			System.out.println("InvalidInputException Exception: "+e.getMessage()+"\n");
 			
 		}
 		
 	}
-	private void Inputpara(byte shape) throws InvalidInput {
+	private void inputPara(byte shape) throws InvalidInputException {
 		switch (shape) {
         case 1:
-            Circle();
+            circle();
             break;
         case 2:
-            Rectangle();
+            rectangle();
             break;
         case 3:
-            Triangle();
+            triangle();
             break;
         case 4:
-            Square();
+            square();
             break;
         case 5:
-            Sphere();
+            sphere();
             break;
         case 6:
-            Cylinder();
+            cylinder();
             break;
         case 7:
-            Cube();
+            cube();
             break;
         case 8:
-            Cuboid();
+            cuboid();
             break;
         default:
         	System.out.println("Invalid input, Enter from the given numbers");
             
         }
 	}
-	private void Cuboid() throws InvalidInput {
+	private void cuboid() throws InvalidInputException {
 		
 		System.out.println("Cuboid:");
 		System.out.print("Enter length(l): ");
 		double l = sc.nextDouble();
 		if(l<0) {
-			throw new InvalidInput("Negative Length");
+			throw new InvalidInputException("Negative Length");
 		}
 		System.out.print("Enter breath(b): ");
 		double b = sc.nextDouble();
 		if(b<0) {
-			throw new InvalidInput("Negative Breadth");
+			throw new InvalidInputException("Negative Breadth");
 		}
 		System.out.print("Enter height(h): ");
 		double h = sc.nextDouble();
 		if(h<0) {
-			throw new InvalidInput("Negative Height");
+			throw new InvalidInputException("Negative Height");
 		}
 		double TSArea = 2*(l*b+b*h+h*l);
 		double Volume = l*b*h;
@@ -81,13 +81,13 @@ Scanner sc = new Scanner(System.in);
 		System.out.println("Volume of Cuboid with length and breadth and height "+l+", "+b+", "+h+" is: "+String.format("%.2f", Volume));
 		System.out.println();
 	}
-	private void Cube() throws InvalidInput {
+	private void cube() throws InvalidInputException {
 		
 		System.out.println("Cube:");
 		System.out.print("Enter Side(s): ");
 		double a = sc.nextDouble();
 		if(a<0) {
-			throw new InvalidInput("Negative Side");
+			throw new InvalidInputException("Negative Side");
 		}
 		double SurfaceArea = 6*Math.pow(a, 2);
 		double Volume = Math.pow(a, 3);
@@ -95,19 +95,19 @@ Scanner sc = new Scanner(System.in);
 		System.out.println("Volume of Cube with Side "+a+" is: "+String.format("%.2f", Volume));
 		System.out.println();
 	}
-	private void Cylinder() throws InvalidInput {
+	private void cylinder() throws InvalidInputException {
 		
 		double pi = Math.PI;
 		System.out.println("Cylinder:");
 		System.out.print("Enter radius: ");
 		double radius = sc.nextDouble();
 		if(radius<0) {
-			throw new InvalidInput("Negative Radius");
+			throw new InvalidInputException("Negative Radius");
 		}
 		System.out.print("Enter height: ");
 		double height = sc.nextDouble();
 		if(height<0) {
-			throw new InvalidInput("Negative Height");
+			throw new InvalidInputException("Negative Height");
 		}
 		double CSArea = 2*pi*radius*height;
 		double SArea = 2*pi*radius*(radius+height);
@@ -117,14 +117,14 @@ Scanner sc = new Scanner(System.in);
 		System.out.println("Volume of Cylinder with radius and height "+radius+", "+height+" is: "+String.format("%.2f", Volume));
 		System.out.println();
 	}
-	private void Sphere() throws InvalidInput {
+	private void sphere() throws InvalidInputException {
 		
 		double pi = Math.PI;
 		System.out.println("Sphere:");
 		System.out.print("Enter radius: ");
 		double radius = sc.nextDouble();
 		if(radius<0) {
-			throw new InvalidInput("Negative Radius");
+			throw new InvalidInputException("Negative Radius");
 		}
 		double SArea = 4*pi*Math.pow(radius, 2);
 		double Volume = (4.0/3.0)*pi*Math.pow(radius, 3);
@@ -132,13 +132,13 @@ Scanner sc = new Scanner(System.in);
 		System.out.println("Volume of Sphere with radius "+radius+" is: "+String.format("%.2f", Volume));
 		System.out.println();
 	}
-	private void Square() throws InvalidInput {
+	private void square() throws InvalidInputException {
 		
 		System.out.println("Square:");
 		System.out.print("Enter Side(s): ");
 		double s = sc.nextDouble();
 		if(s<0) {
-			throw new InvalidInput("Negative Side");
+			throw new InvalidInputException("Negative Side");
 		}
 		double Area = Math.pow(s, 2);
 		double Perimeter = 4*s;
@@ -146,35 +146,35 @@ Scanner sc = new Scanner(System.in);
 		System.out.println("Area of Square with Side "+s+" is: "+String.format("%.2f", Area));
 		System.out.println();
 	}
-	private void Triangle() throws InvalidInput {
+	private void triangle() throws InvalidInputException {
 		
 		System.out.println("Triangle:");
 		System.out.print("Enter height(h): ");
 		double h = sc.nextDouble();
 		if(h<0) {
-			throw new InvalidInput("Negative Height");
+			throw new InvalidInputException("Negative Height");
 		}
 		System.out.print("Enter base(b): ");
 		double b = sc.nextDouble();
 		if(b<0) {
-			throw new InvalidInput("Negative Base");
+			throw new InvalidInputException("Negative Base");
 		}
 		double Area = 0.5*h*b;
 		System.out.println("Area of Triangle with height and base "+h+", "+b+" is: "+String.format("%.2f", Area));
 		System.out.println();
 	}
-	private void Rectangle() throws InvalidInput {
+	private void rectangle() throws InvalidInputException {
 		
 		System.out.println("Rectangle:");
 		System.out.print("Enter length(l): ");
 		double l = sc.nextDouble();
 		if(l<0) {
-			throw new InvalidInput("Negative Length");
+			throw new InvalidInputException("Negative Length");
 		}
 		System.out.print("Enter breath(b): ");
 		double b = sc.nextDouble();
 		if(b<0) {
-			throw new InvalidInput("Negative Breadth");
+			throw new InvalidInputException("Negative Breadth");
 		}
 		double Area = l*b;
 		double Perimeter = 2*(l+b);
@@ -182,13 +182,13 @@ Scanner sc = new Scanner(System.in);
 		System.out.println("Area of Rectangle with length and breadth "+l+", "+b+" is: "+String.format("%.2f", Area));
 		System.out.println();
 	}
-	private void Circle() throws InvalidInput {
+	private void circle() throws InvalidInputException {
 		double pi = Math.PI;
 		System.out.println("Cirlce:");
 		System.out.print("Enter radius: ");
 		double radius = sc.nextDouble();
 		if(radius<0) {
-			throw new InvalidInput("Negative Radius");
+			throw new InvalidInputException("Negative Radius");
 		}
 		double Area = pi*Math.pow(radius, 2);
 		double Circumference = 2*pi*radius;

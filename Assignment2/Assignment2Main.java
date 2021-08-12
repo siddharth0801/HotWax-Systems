@@ -6,7 +6,7 @@ public class Assignment2Main {
 		
 		Problem2 obj= new Problem2();
 		while(true) {
-			obj.Menu();
+			obj.menu();
 			
 		}
 	}
