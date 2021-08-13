@@ -1,0 +1,26 @@
+Runtime Exception when we Deserialize "output1.ser" after modifying Student class:
+
+output1.ser reading!!
+java.io.InvalidClassException: Student; local class incompatible: stream classdesc serialVersionUID = -5642957519723989486, local class serialVersionUID = -7210254487651000357
+        at java.io.ObjectStreamClass.initNonProxy(Unknown Source)
+        at java.io.ObjectInputStream.readNonProxyDesc(Unknown Source)
+        at java.io.ObjectInputStream.readClassDesc(Unknown Source)
+        at java.io.ObjectInputStream.readOrdinaryObject(Unknown Source)
+        at java.io.ObjectInputStream.readObject0(Unknown Source)
+        at java.io.ObjectInputStream.readObject(Unknown Source)
+        at java.io.ObjectInputStream.readObject(Unknown Source)
+        at java.util.ArrayList.readObject(Unknown Source)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+        at java.lang.reflect.Method.invoke(Unknown Source)
+        at java.io.ObjectStreamClass.invokeReadObject(Unknown Source)
+        at java.io.ObjectInputStream.readSerialData(Unknown Source)
+        at java.io.ObjectInputStream.readOrdinaryObject(Unknown Source)
+        at java.io.ObjectInputStream.readObject0(Unknown Source)
+        at java.io.ObjectInputStream.readObject(Unknown Source)
+        at java.io.ObjectInputStream.readObject(Unknown Source)
+        at Problem5.DeserializingList(Problem5.java:55)
+        at DeserializationTest.main(DeserializationTest.java:10)
+Exception in thread "main" java.lang.NullPointerException
+        at DeserializationTest.main(DeserializationTest.java:11)
