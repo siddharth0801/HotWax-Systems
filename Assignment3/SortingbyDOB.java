@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Date;  
 
-public class SortingbyDOB implements Comparator<Employee>{
+public class SortingByDOB implements Comparator<Employee>{
 
 	@Override
 	public int compare(Employee o1, Employee o2) {

@@ -7,7 +7,7 @@ public class Problem3 {
 	
 	private HashMap<String,Employee> empList = new HashMap<>();
 	private Scanner sc = new Scanner(System.in);
-	public void InitializeHash() {
+	public void initializeHash() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("Employee.txt"));
 			String values = br.readLine();
@@ -26,7 +26,7 @@ public class Problem3 {
 		}
 		
 	}
-	public void ConsoleMenu() {
+	public void consoleMenu() {
 		
 		System.out.println("\n\tMenu");
 		System.out.println("1) Add Employee ");
@@ -42,13 +42,13 @@ public class Problem3 {
 		
 		switch (b) {
 		case 1:
-			AddOp();
+			addOp();
 			break;
 		case 2:
-			DeleteOp();
+			deleteOp();
 			break;
 		case 3:
-			SearchOp();
+			searchOp();
 			break;
 //		case 4:
 //			PrintallEmp();
@@ -58,7 +58,7 @@ public class Problem3 {
 			break;
 		}
 	}
-	private void SearchOp() {
+	private void searchOp() {
 		
 		System.out.print("Enter Query(to Search in data): ");
 		String que = sc.nextLine();
@@ -79,13 +79,13 @@ public class Problem3 {
 		System.out.println("1) Name, 2) Age, 3) DOB ");
 		byte sortingchoice=sc.nextByte();
 		if(sortingchoice==1) {
-			Collections.sort(arr,new Sortingbyname());
+			Collections.sort(arr,new SortingByName());
 		}
 		else if(sortingchoice==2) {
-			Collections.sort(arr,new Sortingbyage());
+			Collections.sort(arr,new SortingByAge());
 		}
 		else if(sortingchoice==3) {
-			Collections.sort(arr,new SortingbyDOB());
+			Collections.sort(arr,new SortingByDOB());
 		}
 		else {
 			System.out.println("Invalid Choice!! Try Again");
@@ -112,7 +112,7 @@ public class Problem3 {
 		}
 		
 	}
-	private void DeleteOp() {
+	private void deleteOp() {
 		System.out.println("Deleting Employee Record!!");
 		System.out.println("Enter Employee ID");
 		String id = sc.nextLine();
@@ -123,13 +123,13 @@ public class Problem3 {
 			f.delete();
 			for (Entry<String, Employee> entry : empList.entrySet()) {
 				Employee e = entry.getValue();
-				Addtofile(e);
+				addToFile(e);
 			}
 			
 		}
 		
 	}
-	public void PrintallEmp() {
+	public void printallEmp() {
 		
 		for (Entry<String, Employee> entry : empList.entrySet()) {
 			Employee e = entry.getValue();
@@ -144,7 +144,7 @@ public class Problem3 {
 		String[] d = date.split("/");
 		return (s+d[0]+d[1]+d[2]);
 	}
-	private void AddOp() {
+	private void addOp() {
 		
 		System.out.println("Adding Employee!!");
 		System.out.print("Enter Name: ");
@@ -160,10 +160,10 @@ public class Problem3 {
 		
 		Employee emp = new Employee(name, mail, age, dob);
 		empList.put(getEmpID(emp), emp);
-		Addtofile(emp);
+		addToFile(emp);
 		System.out.println("Employee Added!!");
 	}
-	public void Addtofile(Employee e) {
+	public void addToFile(Employee e) {
 		
 		try {
 			

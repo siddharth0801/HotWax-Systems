@@ -1,7 +1,7 @@
 
 import java.util.Comparator;
 
-public class Sortingbyname implements Comparator<Employee> {
+public class SortingByName implements Comparator<Employee> {
 
 	@Override
 	public int compare(Employee o1, Employee o2) {
