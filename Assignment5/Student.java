@@ -7,16 +7,14 @@ import java.util.Date;
 public class Student implements Serializable {
 
 	String firstName;
-	// String dob;
 	Date dob;
 	Address a;
 	public Student(String name,String dob,Address a) {
 		this.firstName=name;
-		// this.dob=dob;
-		SetDate(dob);
+		setDate(dob);
 		this.a=a;
 	}
-	private void SetDate(String dob) {
+	private void setDate(String dob) {
 		try {
 			Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(dob);
 			this.dob=date1;
@@ -24,6 +22,5 @@ public class Student implements Serializable {
 			e.printStackTrace();
 		}
 	}
-	
 	
 }

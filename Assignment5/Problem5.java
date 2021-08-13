@@ -12,25 +12,25 @@ public class Problem5 {
 	public ArrayList<Student> makeList() {
 		ArrayList<Student> arr = new ArrayList<>();
 		
-		Address a1 = new Address("Indore", "M.P.", 450001, "India");
+		Address a1 = new Address("Indore", "MP", 450001, "India");
 		Student s1 = new Student("Siddharth", "04/03/2000", a1);
 		arr.add(s1);
-		Address a2 = new Address("Bhopal", "M.P.", 462001, "India");
+		Address a2 = new Address("Bhopal", "MP", 462001, "India");
 		Student s2 = new Student("Kushagra", "24/07/1999", a2);
 		arr.add(s2);
 		Address a3 = new Address("Delhi", "Delhi", 120001, "India");
 		Student s3 = new Student("Aditya", "07/11/1998", a3);
 		arr.add(s3);
-		Address a4 = new Address("Agra", "U.P.", 110451, "India");
+		Address a4 = new Address("Agra", "UP", 110451, "India");
 		Student s4 = new Student("Ajay", "25/01/1999", a4);
 		arr.add(s4);
 		return arr;
 	}
-	public void SerializationProcess(String filename) {
+	public void serializationProcess(String filename) {
 		ArrayList<Student> arr = makeList();
-		SerializingList(arr, filename);
+		serializingList(arr, filename);
 	}
-	private void SerializingList(ArrayList<Student> data,String filename) {
+	public void serializingList(ArrayList<Student> data,String filename) {
 		
 		try {
 			FileOutputStream fos = new FileOutputStream(filename);
@@ -39,7 +39,8 @@ public class Problem5 {
 			oos.close();
 			fos.close();
 			System.out.println(filename+" Created!!");
-				
+			
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -47,12 +48,13 @@ public class Problem5 {
 		}
 		
 	}
-	public ArrayList<Student> DeserializingList(String filename) {
+	public ArrayList<Student> deserializingList(String filename) {
 		ArrayList<Student> data =null;
 		try {
 			FileInputStream fis = new FileInputStream(filename);
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			data = (ArrayList<Student>) ois.readObject();
+			ArrayList<Student> readObject = (ArrayList<Student>) ois.readObject();
+			data = readObject;
 			
 			ois.close();
 			fis.close();
